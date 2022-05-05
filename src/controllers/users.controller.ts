@@ -3,11 +3,11 @@ import createUserService from "../services/users/createUser.service";
 import listUsersService from "../services/users/listUsers.service";
 
 class UsersController {
-  store(req: Request, res: Response) {
+  async store(req: Request, res: Response) {
     const { name, email } = req.body;
 
     try {
-      const newUser = createUserService({ name, email });
+      const newUser = await createUserService({ name, email });
 
       return res.status(201).json(newUser);
     } catch (err) {
@@ -20,9 +20,9 @@ class UsersController {
     }
   }
 
-  index(req: Request, res: Response) {
+  async index(req: Request, res: Response) {
     try {
-      const usersList = listUsersService();
+      const usersList = await listUsersService();
 
       return res.json(usersList);
     } catch (err) {

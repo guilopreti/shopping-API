@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 
-const showUserService = async (email: string) => {
+const deleteUserService = async (email: string) => {
   const userRepository = AppDataSource.getRepository(User);
 
   const account = await userRepository.findOne({
@@ -10,11 +10,9 @@ const showUserService = async (email: string) => {
     },
   });
 
-  if (!account) {
-    throw new Error("User not found");
-  }
+  await userRepository.delete(account!.id);
 
-  return account;
+  return true;
 };
 
-export default showUserService;
+export default deleteUserService;

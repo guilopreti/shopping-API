@@ -1,5 +1,6 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
+import { AppError } from "../../errors/appError";
 
 const showUserService = async (email: string) => {
   const userRepository = AppDataSource.getRepository(User);
@@ -11,7 +12,7 @@ const showUserService = async (email: string) => {
   });
 
   if (!account) {
-    throw new Error("User not found");
+    throw new AppError(409, "User not found");
   }
 
   return account;

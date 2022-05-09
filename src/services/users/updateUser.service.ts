@@ -1,6 +1,7 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 import bcrypt from "bcrypt";
+import { AppError } from "../../errors/appError";
 
 const updateUserService = async (email: string, password: string) => {
   const userRepository = AppDataSource.getRepository(User);
@@ -12,7 +13,7 @@ const updateUserService = async (email: string, password: string) => {
   });
 
   if (bcrypt.compareSync(password, account!.password)) {
-    throw new Error("Inform a different password.");
+    throw new AppError(409, "Inform a different password.");
   }
 
   const newPassword = await bcrypt.hash(password, 10);

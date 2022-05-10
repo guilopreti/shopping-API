@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToMany, JoinTable } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Product } from "./product.entity";
 
 @Entity()
 export class Cart {
@@ -8,6 +9,12 @@ export class Cart {
 
   @Column("float")
   subtotal: number;
+
+  @ManyToMany((type) => Product, {
+    eager: true,
+  })
+  @JoinTable()
+  products: Product[];
 
   constructor() {
     if (!this.id) {

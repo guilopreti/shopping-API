@@ -1,3 +1,4 @@
+import "express-async-errors";
 import express, { NextFunction, Request, Response } from "express";
 import { AppError } from "./errors/appError";
 import userRouter from "./routes/users.routes";

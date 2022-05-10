@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToOne, JoinColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Cart } from "./cart.entity";
 
 @Entity()
 export class User {
@@ -14,6 +15,12 @@ export class User {
 
   @Column()
   password: string;
+
+  @OneToOne((type) => Cart, {
+    eager: true,
+  })
+  @JoinColumn()
+  cart: Cart;
 
   constructor() {
     if (!this.id) {

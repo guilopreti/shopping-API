@@ -29,4 +29,4 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   });
 });
 
-app.listen(3000);
+export default app;

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

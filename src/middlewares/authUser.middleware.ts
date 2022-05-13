@@ -11,7 +11,7 @@ const authUserMiddleware = (
 
     jwt.verify(
       token as string,
-      process.env.JWT_SECRET as string,
+      process.env.JWT_SECRET || "default",
       (err: any, decoded: any) => {
         req.userEmail = decoded.email;
         next();

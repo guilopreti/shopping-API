@@ -19,7 +19,8 @@ class ProductController {
   }
 
   async index(req: Request, res: Response) {
-    const producList: IProduct[] = await listProductsService();
+    console.log(req.query);
+    const producList: IProduct[] = await listProductsService(req.query);
 
     return res.json(producList);
   }

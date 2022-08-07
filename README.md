@@ -1,4 +1,4 @@
-# Projeto-Aula-BackEnd-M4
+# Projeto Shopping API Aula M4
 
 Neste projeto foi desenvolvido um serviço back-end responsável por simular um sistema de compras, com um cadastro e gerenciamento de usuários, criação e listagem de produtos, utilização de carrinhos e efetuação de compras.
 

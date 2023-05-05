@@ -2,7 +2,7 @@
 
 Neste projeto foi desenvolvido um serviço back-end responsável por simular um sistema de compras, com um cadastro e gerenciamento de usuários, criação e listagem de produtos, utilização de carrinhos e efetuação de compras.
 
-Deploy do API: https://api-userskz-aulas-m4.herokuapp.com/
+Deploy do API: https://shopping-api-eect.onrender.com
 
 ## Endpoints do serviço:
 
